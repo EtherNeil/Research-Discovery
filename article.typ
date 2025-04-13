@@ -1,4 +1,4 @@
-#import "@preview/charged-ieee:0.1.3": ieee
+ #import "@preview/charged-ieee:0.1.3": ieee
 
 #show: ieee.with(
   title: [Système de synchronisation hors ligne dans les POS avec un module IA de détection des conflits],
@@ -31,7 +31,7 @@ Dans de nombreux secteurs du commerce, les systèmes de point de vente (*Point o
 assurer la vente de produits et la gestion des stocks même lorsque la connexion réseau est absente ou 
 instable. Cette approche, souvent appelée *offline-first*, consiste à enregistrer et stocker les 
 transactions localement, puis à synchroniser ces données avec un serveur central aussitôt qu’une 
-connexion redevient disponible (@german2016; @faniband2018). Toutefois, l’absence de mise à jour 
+connexion redevient disponible. Toutefois, l’absence de mise à jour 
 simultanée sur une base centrale peut engendrer des *conflits* lorsque plusieurs terminaux modifient 
 indépendamment une même ressource. Les méthodes classiques (telles que *last-writer-wins*) risquent 
 alors de provoquer des pertes de mises à jour légitimes ou de laisser passer des transactions 
@@ -42,17 +42,17 @@ En particulier, les *réseaux bayésiens* constituent un cadre probabiliste de d
 d’évaluer la vraisemblance qu’une transaction ou une modification concurrente soit valide ou 
 frauduleuse, en se basant sur un ensemble de variables (volume, historique de ventes, localisation, 
 horaires, etc.). Des travaux réalisés dans le domaine bancaire montrent que ces modèles bayésiens 
-peuvent améliorer sensiblement la reconnaissance de scénarios suspects (@akanbi2024). Or, l’idée 
+peuvent améliorer sensiblement la reconnaissance de scénarios suspects. Or, l’idée 
 d’en transposer le principe aux POS offline-first est d’autant plus pertinente que ces derniers 
 sont régulièrement confrontés à la question des conflits de synchronisation.
 
-Dans cette étude, nous proposons un *état de l’art* sur la gestion de la synchronisation hors ligne 
+Dans cette étude, je vous propose un *état de l’art* sur la gestion de la synchronisation hors ligne 
 dans les POS et la détection de conflits, en soulignant comment un module IA (réseau bayésien) 
 pourrait, lors de la phase de réintégration des données, distinguer un conflit « légitime » d’une 
-anomalie ou d’un acte frauduleux. Pour ce faire, nous nous appuierons sur les contributions de 
+anomalie ou d’un acte frauduleux. Pour ce faire, je m'appuierai sur les contributions de 
 German et al. (@german2016), Sai (@sai2017), Santos et Mendes (@santos2023), ainsi que Faniband 
-et al. (@faniband2018), et nous nous inspirerons également des approches bayésiennes de détection 
-de fraude présentées par Akanbi (@akanbi2024). Nous commencerons par une revue des travaux 
+et al. (@faniband2018), et je m'inspirerai également des approches bayésiennes de détection 
+de fraude présentées par Akanbi (@akanbi2024). Je commencerai par une revue des travaux 
 relevant de l’offline-first et de la sécurité dans les POS, avant de décrire comment un réseau 
 bayésien peut être intégré au système pour renforcer la fiabilité de la synchronisation.
 
@@ -96,7 +96,7 @@ Les solutions de synchronisation offline-first décrites par Faniband et al. (@f
 par la logique CRDT se concentrent surtout sur la convergence des données, mais pas sur leur caractère 
 légitime ou frauduleux.
 
-Dans la suite, nous proposons d’allier ces deux perspectives : utiliser un mécanisme de synchronisation 
+Dans la suite, je vous propose d’allier ces deux perspectives : utiliser un mécanisme de synchronisation 
 offline-first pour garantir la continuité d’activité, et y adosser un module IA (réseau bayésien) chargé 
 d’estimer la probabilité qu’une mise à jour concurrente soit légitime ou suspecte. Cette intégration 
 permettrait alors de classer les conflits et de déclencher des procédures différentes (fusion automatique, 
@@ -113,12 +113,12 @@ les autres terminaux, assurant la convergence des états.
 
 Cependant, à l’issue de cette opération, le serveur peut détecter un *conflit* (plusieurs 
 modifications concurrentes sur le même produit, etc.). Plutôt que d’appliquer une simple règle 
-*last-writer-wins*, nous proposons d’intégrer un *module IA* (basé sur un réseau bayésien) pour 
+*last-writer-wins*, je vous propose d’intégrer un *module IA* (basé sur un réseau bayésien) pour 
 analyser la probabilité que chaque conflit soit « naturel » ou « suspect ».  
 
 == Réseau bayésien pour la détection de conflits <sec:bayes>
-Inspirés par l’approche d’Akanbi (@akanbi2024) dans la détection de fraude bancaire, nous 
-proposons un réseau bayésien capable d’agréger divers *indicateurs* :
+Inspirés par l’approche d’Akanbi (@akanbi2024) dans la détection de fraude bancaire, je vous propose 
+un réseau bayésien capable d’agréger divers *indicateurs* comme :
 
 1. *Historique de ventes* (quantité déjà vendue, pics inhabituels)  
 2. *Heure et date* de la modification (ventes à des horaires improbables?)  
@@ -200,7 +200,7 @@ paraissent solides pour de nombreuses enseignes et PME.
 
 = Conclusion et perspectives
 
-Dans cet état de l’art, nous avons mis en lumière l’importance d’un *système de synchronisation 
+Dans cet état de l’art, j'ai mis en lumière l’importance d’un *système de synchronisation 
 offline-first* dans les points de vente (POS), tout en soulignant les risques de conflits et de 
 fraudes potentielles lorsqu’un terminal hors ligne réintègre ses données dans la base centrale. 
 L’analyse de la littérature montre que si des approches telles que *last-writer-wins* ou les *CRDT* 
@@ -217,33 +217,32 @@ régulier du réseau bayésien. Sur le plan opérationnel, le choix des *seuils*
 un point stratégique, afin de limiter les faux positifs qui pénaliseraient la fluidité des opérations.
 
 == Perspectives
-1. *Validation en conditions réelles* : tester l’approche dans plusieurs enseignes (taille, 
-  et de réduction des conflits. répartition géographique) pour évaluer les bénéfices concrets en termes 
-  de détection de fraude 
+1. *Validation en conditions réelles* : tester l’approche dans plusieurs enseignes (taille, répartition 
+  géographique) pour évaluer les bénéfices concrets en termes de détection de fraude 
 2. *Couplage avec d’autres algorithmes* : au-delà du réseau bayésien, des techniques de *machine 
   learning* supervisé (réseaux neuronaux, SVM) pourraient être explorées, notamment pour repérer 
   des anomalies comportementales plus fines (@santos2023).
-3. *Outils et plateformes* : envisager l’emploi de frameworks open-source (p. ex. PouchDB, 
+3. *Outils et plateformes* : envisager l’emploi de frameworks open-source (ex. PouchDB, 
   CouchDB pour la partie offline-first) et de bibliothèques Python/JS pour la partie IA, 
   optimisant ainsi le développement et la maintenance.
 4. *Apprentissage continu* : mettre en place un mécanisme d’auto-amélioration, où chaque nouveau 
   cas détecté (conflit avéré ou fraude confirmée) vient affiner les paramètres du modèle probabiliste.
 
 == Usage intensif de l’IA dans ce travail
-Nous avons fait *massivement* appel à l’intelligence artificielle pour produire ce document de bout 
+J'ai fait *massivement* appel à l’intelligence artificielle pour produire ce document de bout 
 en bout. *Toutes* les sources bibliographiques ont été *repérées* via des requêtes assistées par 
-un LLM (modèle de langage de grande taille), *l’intégralité* du texte a d’abord été *rédigée* par 
+un LLM, *l’intégralité* du texte a d’abord été *rédigée* par 
 l’IA, puis *restructurée et corrigée* par mes soins. Bien sûr, j’ai effectué une *vérification 
 humaine* rigoureuse de chaque référence et de chaque affirmation, afin de veiller à la cohérence 
 et à la pertinence scientifique du contenu. 
 
 Ce choix assumé d’utiliser l’IA à toutes les étapes—depuis la recherche documentaire jusqu’à la 
 rédaction initiale—m’a permis de gagner un temps considérable, tout en identifiant des *mots-clés* 
-et des *axes* parfois inattendus. Cela ne s’est toutefois pas fait au détriment de l’esprit 
+et des *axes* parfois inattendus. Cela ne s’est toutefois pas fait au détriment de mon esprit 
 critique : j’ai *filtré*, *validé* et parfois *réécrit* certaines sections pour m’assurer 
 que le texte final reflète fidèlement les enjeux et les nuances du sujet. Dans l’ensemble, cette 
 démarche illustre la *puissance* de l’IA pour accélérer le travail académique, à condition de la 
-coupler à une *relecture* et une *analyse* humaines systématiques.
+coupler à une *relecture* et une *analyse* humaines.
 
 En conclusion, le *mariage d’une architecture offline-first* et d’un *module IA* de détection 
 des conflits/fraudes apporte une plus-value notable, surtout pour des commerces vulnérables aux 

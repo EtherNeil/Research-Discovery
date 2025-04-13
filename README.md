@@ -10,13 +10,13 @@ In many commercial environments, network connectivity cannot be guaranteed at al
 ## Objectives
 
 1. **Search, select, and read relevant scientific articles**  
-   - Explore academic sources (IEEE, ACM, Google Scholar, etc.)  
-   - Understand existing work on offline-first POS, data synchronization, and Bayesian-based conflict detection.
+   - Explore academic sources (ResearchGate, ...)  
+   - Understand existing work on the topic
 
 2. **Compose a concise state-of-the-art (about 3 pages)**  
    - Provide a structured and critical overview of the topic:  
      - Introduction  
-     - Thematic sections (synchronization offline-first, conflict resolution, security/fraud detection)  
+     - Thematic sections
      - Conclusion  
    - Integrate approximately 4–5 references if it’s tied to the final-year project theme.
 
@@ -24,13 +24,9 @@ In many commercial environments, network connectivity cannot be guaranteed at al
    - Per the teacher’s guidelines, **explain how** generative AI (LLM) assisted in the writing process and reference management.  
    - Critically discuss how you **verified** and **adapted** AI-generated outputs.
 
-4. **Demonstrate your own approach**  
-   - Illustrate how a Bayesian network can help classify conflicts (legitimate vs. suspicious).  
-   - Discuss the potential impact on reducing fraud or data inconsistencies in an offline-first POS environment.
-
 ## Use of AI
 
-Consistent with the professor’s requirement, we have **heavily leveraged AI** (a Large Language Model) to help:  
+Consistent with the professor’s requirement, I have **heavily leveraged AI** (LLM) to help:  
 
 - Identify relevant literature more efficiently.  
 - Propose an initial structuring of sections.  
