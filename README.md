@@ -24,16 +24,6 @@ In many commercial environments, network connectivity cannot be guaranteed at al
    - Per the teacher’s guidelines, **explain how** generative AI (LLM) assisted in the writing process and reference management.  
    - Critically discuss how you **verified** and **adapted** AI-generated outputs.
 
-## Use of AI
-
-Consistent with the professor’s requirement, I have **heavily leveraged AI** (LLM) to help:  
-
-- Identify relevant literature more efficiently.  
-- Propose an initial structuring of sections.  
-- Generate text which was then **verified and edited** by a human for correctness, clarity, and scientific rigor.  
-
-This **hybrid approach** highlights the **strength** of LLMs for speeding up academic work, combined with **manual quality control** to ensure reliable output.
-
 ## Technologies Used
 
 - **Typst** for authoring the literature review (short scientific paper).  
